@@ -1,0 +1,136 @@
+/* client/src/HomePage.css */
+
+/* --- Hero Section Styles (HomePage.jsx) --- */
+.hero-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent); /* Darker gradient */
+    color: white;
+    z-index: 1; /* Ensure content is above canvas */
+    overflow: hidden; /* Prevent 3D overflow */
+}
+
+.hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place behind content */
+}
+
+.hero-content-overlay {
+    position: relative; /* To bring content above canvas */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Take full height of hero-container */
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.1)); /* Slight overlay on content too */
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* Adjusted for readability */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Added text shadow for visibility */
+    color: #e0b0ff; /* Lighter purple for title */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button {
+    background-color: #9333ea; /* Purple */
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px; /* Pill shape */
+    font-size: 1.1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: scale(1);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.8s ease-out;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(50px);
+    display: inline-block;
+}
+
+.hero-button:hover {
+    transform: scale(1.05);
+    background-color: #7c2d12; /* Darker purple on hover */
+}
+
+/* Animation class to be added by React state */
+.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Featured Events Section Styles --- */
+.featured-events-section {
+    background-color: #1a202c; /* Dark background */
+    padding: 4rem 0; /* Vertical padding */
+    color: white;
+}
+
+/* --- Call To Action Section Styles --- */
+.cta-section {
+    background-color: #374151; /* Darker grey */
+    padding: 4rem 0;
+    color: white;
+}
+
+.cta-button {
+    background-color: #22c55e; /* Green */
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #16a34a; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+/* --- Media Queries for Responsiveness (Basic) --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+    .text-3xl { /* For Featured Events & CTA titles */
+        font-size: 2rem;
+    }
+}
